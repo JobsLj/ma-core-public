@@ -53,7 +53,7 @@ public class JsscSerialPortInputStream extends SerialPortInputStream implements 
         this.dataStream = new LinkedBlockingQueue<Byte>();
 
         this.port = serialPort;
-        this.port.addEventListener(this, SerialPort.MASK_RXCHAR);
+        this.port.addEventListener(this, SerialPort.MASK_RXCHAR, 0, 100);
        
         //Setup a bounded Pool that will execute the listener tasks in Order
         this.listenerTasks = new ArrayBlockingQueue<SerialPortProxyEventTask>(this.maxPoolSize);
